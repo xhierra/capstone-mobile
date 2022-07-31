@@ -1,51 +1,41 @@
-import { Route } from 'react-router-dom';
-import {
-  IonApp,
-  IonRouterOutlet,
-  setupIonicReact
-} from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
+import { Route } from "react-router-dom";
+import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
+import { IonReactRouter } from "@ionic/react-router";
+import { MoralisProvider } from "react-moralis";
+import Router from "./router";
 
-
-import Login from './pages/Login';
-import Home from './pages/Home';
+import Login from "./pages/Login";
+import Home from "./pages/Home";
+import Splash from "./pages/SplashScreen";
 
 /* Core CSS required for Ionic components to work properly */
-import '@ionic/react/css/core.css';
+import "@ionic/react/css/core.css";
 
 /* Basic CSS for apps built with Ionic */
-import '@ionic/react/css/normalize.css';
-import '@ionic/react/css/structure.css';
-import '@ionic/react/css/typography.css';
-
+import "@ionic/react/css/normalize.css";
+import "@ionic/react/css/structure.css";
+import "@ionic/react/css/typography.css";
 
 /* Optional CSS utils that can be commented out */
-import '@ionic/react/css/padding.css';
-import '@ionic/react/css/float-elements.css';
-import '@ionic/react/css/text-alignment.css';
-import '@ionic/react/css/text-transformation.css';
-import '@ionic/react/css/flex-utils.css';
-import '@ionic/react/css/display.css';
+import "@ionic/react/css/padding.css";
+import "@ionic/react/css/float-elements.css";
+import "@ionic/react/css/text-alignment.css";
+import "@ionic/react/css/text-transformation.css";
+import "@ionic/react/css/flex-utils.css";
+import "@ionic/react/css/display.css";
 
 /* Theme variables */
-import './theme/variables.css';
-
+import "./theme/variables.css";
 setupIonicReact();
-
 const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/">
-          <Login />
-        </Route>
-        <Route path="/home/">
-          <Home />
-        </Route>
-      </IonRouterOutlet>
-
-    </IonReactRouter>
-  </IonApp>
+  <MoralisProvider
+    serverUrl="https://7oebgpnp43rq.usemoralis.com:2053/server"
+    appId="36YXbnPgUbRpv3AeiFOlMPVGum3bZQekBJbKLi6H"
+  >
+    <IonApp>
+      <Router />
+    </IonApp>
+  </MoralisProvider>
 );
 
 export default App;
