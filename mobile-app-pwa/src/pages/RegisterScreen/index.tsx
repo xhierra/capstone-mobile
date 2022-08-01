@@ -15,7 +15,10 @@ import {
 } from "@ionic/react";
 import { useState } from "react";
 import { useMoralis } from "react-moralis";
+import { useHistory } from "react-router";
+
 const RegisterScreen = () => {
+  const history = useHistory();
   const { signup } = useMoralis();
   const [present, dismiss] = useIonToast();
 
@@ -41,6 +44,10 @@ const RegisterScreen = () => {
         onDidDismiss: () => console.log("dismissed"),
         onWillDismiss: () => console.log("will dismiss"),
       });
+    }
+
+    if (response !== undefined) {
+      history.push("/home");
     }
   };
   return (

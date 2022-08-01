@@ -38,6 +38,10 @@ const LoginScreen = () => {
         onWillDismiss: () => console.log("will dismiss"),
       });
     }
+
+    if (response !== undefined) {
+      history.push("/home");
+    }
   };
 
   return (
