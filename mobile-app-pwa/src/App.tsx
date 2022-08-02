@@ -1,12 +1,6 @@
-import { Route } from "react-router-dom";
-import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
-import { IonReactRouter } from "@ionic/react-router";
+import { IonApp, setupIonicReact } from "@ionic/react";
 import { MoralisProvider } from "react-moralis";
 import Router from "./router";
-
-import Login from "./pages/Login";
-import Home from "./pages/Home";
-import Splash from "./pages/SplashScreen";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
